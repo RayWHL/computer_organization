@@ -46,9 +46,9 @@ module storage_mem
         storage_out=mem_rom[ site ];//改变输出值   
         if(rst==1)
         begin
-             for(site=0;site<1024;site=site+1)
+             //for(site=0;site<1024;site=site+1)
              begin
-                 mem_rom[site]=0;
+                // mem_rom[site]=0;
              end    
         end                
     end

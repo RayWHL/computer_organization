@@ -27,11 +27,16 @@ clk,clear,in,out,enable
     input [31:0]in;
     output reg [31:0]out;
     
-    initial begin
-    out<=32'b0;
+    initial out = 0;
+        
+    always @(posedge clk or posedge clear) begin // 时钟上升沿触发，异步清零
+            if (clear) out <= 32'h00000000;
+            else begin 
+                if (enable) out <= in;
+            end
     end
-    
-    always @(posedge clk)
+    /*
+    always @(posedge clk or posedge clear or negedge clear )
     begin
         if(enable==1)
         begin
@@ -55,5 +60,5 @@ clk,clear,in,out,enable
                 out<=out;
             end
         end
-    end
+    end*/
 endmodule

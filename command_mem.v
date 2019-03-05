@@ -25,7 +25,7 @@ module command_mem
 (
 	input [(ADDR_WIDTH-1):0] read_addr,//输入设置为32位，取2-11位用于地址
 	input clk,
-	output reg [(DATA_WIDTH-1):0] command_out
+	output [(DATA_WIDTH-1):0] command_out
 ) ;
 
 	// Declare the RAM variable
@@ -34,12 +34,14 @@ module command_mem
 
 	initial
 	begin
-        $readmemh("E:/workuse/Component/test.txt", command_rom);	
+        $readmemh("D:/ray/zuyuan/command.txt", command_rom);	
     end
-
-	always @ (posedge clk) 
+    
+    assign command_out = command_rom[read_addr[11:2]];   
+/*
+	always 
 	begin
-	    addr_set=read_addr[11:2];
-		command_out = command_rom[addr_set];                         // 读
-	end
+	    //addr_set=read_addr[11:2];
+		assign command_out = command_rom[read_addr[11:2]];                         // 读
+	end */
 endmodule

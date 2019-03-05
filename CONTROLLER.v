@@ -27,7 +27,7 @@ module CONTROLLER(op, func, alu_op, memToReg, memWrite, alu_src, regWrite, sysca
     output reg memToReg, memWrite, alu_src, regWrite, syscall, signedExt, regDst, beq, bne, jr, jmp, jal,lhu,bgez;
     
     always @(*) begin
-        memToReg = 0; memWrite= 0; alu_src= 0; regWrite= 0; syscall= 0; signedExt= 0; regDst= 0; beq= 0; bne= 0; jr= 0; jmp= 0; jal = 0; srav=0 ; sltiu=0 ; lhu=0 ; bgez=0; // init to 0
+        memToReg = 0; memWrite= 0; alu_src= 0; regWrite= 0; syscall= 0; signedExt= 0; regDst= 0; beq= 0; bne= 0; jr= 0; jmp= 0; jal = 0; lhu=0 ; bgez=0; // init to 0
         case(op) 
             0: begin // R type instruction
                 case(func) 
